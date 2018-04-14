@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% load i18n %} {% block body %}
+	<div class="row">
+		<form method="post">
+			{% csrf_token %} {{ form.as_p }}
+			<button class="btn full round" id="login" type="submit">{% trans 'Login' %}</button>
+		</form>
+		<div class="float-container">
+			<a href="{% url 'reset_password' %}" class="btn-flat float left" id="reset_password">{% trans 'Forget Password' %}</a>
+			<a href="{% url 'signup' %}" class="btn-flat float right" id="signup">{% trans 'Sign Up' %}</a>
+		</div>
+	</div> {% endblock %}
