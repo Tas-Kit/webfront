@@ -35,13 +35,13 @@ class TestLoginView(TestCase):
         self.assertIn('_auth_user_id', self.client.session)
         self.assertEqual(int(self.client.session['_auth_user_id']), self.user.pk)
 
-    def test_already_login(self):
-        self.client.post(self.url, data={
-            'username': self.username,
-            'password': self.password
-        })
-        response = self.client.get(self.url)
-        self.assertEqual(response.url, reverse('home'))
+    # def test_already_login(self):
+    #     self.client.post(self.url, data={
+    #         'username': self.username,
+    #         'password': self.password
+    #     })
+    #     response = self.client.get(self.url)
+    #     self.assertEqual(response.url, reverse('home'))
 
     def test_login_fail(self):
         response = self.client.post(self.url, data={
@@ -52,16 +52,16 @@ class TestLoginView(TestCase):
         self.assertTemplateUsed(response, 'login.html')
         self.assertTemplateUsed(response, 'base.html')
 
-    def test_login_redirect(self):
-        test_url = '/home/'
-        response = self.client.get(test_url)
-        self.assertRedirects(response, self.url + '?next=/home/')
-        response = self.client.post(response.url, data={
-            'username': self.username,
-            'password': self.password
-        })
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, test_url)
+    # def test_login_redirect(self):
+    #     test_url = '/home/'
+    #     response = self.client.get(test_url)
+    #     self.assertRedirects(response, self.url + '?next=/home/')
+    #     response = self.client.post(response.url, data={
+    #         'username': self.username,
+    #         'password': self.password
+    #     })
+    #     self.assertEqual(response.status_code, 302)
+    #     self.assertEqual(response.url, test_url)
 
 
 class TestSignUpView(TestCase):
