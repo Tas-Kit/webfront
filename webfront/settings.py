@@ -27,7 +27,7 @@ SECRET_KEY = '21^zmm$&m7+jj+yn8driozsj3*(l5&w*zsm9los_v^(zgj^l$z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['chrome', 'localhost']
+ALLOWED_HOSTS = ['webfront', 'localhost', 'proxyserver']
 
 
 # Application definition
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'webfront.middleware.LoginRequiredMiddleware',
+    # 'webfront.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'webfront.urls'

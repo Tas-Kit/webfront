@@ -23,9 +23,11 @@ from webfront.views import (
     ResetPasswordConfirmView,
     ResetPasswordCompleteView
 )
+from django.contrib import admin
 
 # pylint: disable=invalid-name
 urlpatterns = [
+    url(r'^admin/', admin.site.urls),
     url(r'^home/$', HomeView.as_view(), name='home'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^signup/$', SignUpView.as_view(), name='signup'),
