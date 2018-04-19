@@ -56,6 +56,10 @@ MIDDLEWARE = [
     # 'webfront.middleware.LoginRequiredMiddleware',
 ]
 
+URLS = {
+    'auth': 'http://authserver:8000/'
+}
+
 ROOT_URLCONF = 'webfront.urls'
 
 TEMPLATES = [

@@ -14,8 +14,10 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView
 )
 from django.urls import reverse_lazy
-
+import requests
+import json
 from webfront.forms import SignUpForm
+from settings import URLS
 
 
 class ResetPasswordView(PasswordResetView):
@@ -93,13 +95,21 @@ class LoginView(TemplateView):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
-            if user:
-                login(request, user)
+            auth = requests.post(URLS['auth'] + 'get_jwt/', data={
+                'username': username,
+                'password': password
+            })
+            if auth.status_code == 200:
+                result = json.loads(auth.text)
+                jwt = result['token']
                 sub_path = request.GET.get('next')
                 if sub_path:
-                    return redirect(sub_path)
-                return redirect('home')
+                    response = redirect(sub_path)
+                else:
+                    response = redirect('home')
+                response.set_cookie('JWT', jwt)
+                return response
+
         args = {'form': form}
         return render(request, self.template_name, args)
 
