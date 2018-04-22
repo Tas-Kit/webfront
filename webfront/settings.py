@@ -57,7 +57,9 @@ MIDDLEWARE = [
 ]
 
 URLS = {
-    'auth': 'http://authserver:8000/'
+    'auth': 'http://authserver:8000/',
+    'base': 'http://localhost:8001/',
+    'main': 'http://localhost:8001/main/'
 }
 
 ROOT_URLCONF = 'webfront.urls'

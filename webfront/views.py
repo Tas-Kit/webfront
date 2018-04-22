@@ -104,9 +104,9 @@ class LoginView(TemplateView):
                 jwt = result['token']
                 sub_path = request.GET.get('next')
                 if sub_path:
-                    response = redirect(sub_path)
+                    response = redirect(URLS['base'] + sub_path.lstrip('/'))
                 else:
-                    response = redirect('home')
+                    response = redirect(URLS['main'])
                 response.set_cookie('JWT', jwt)
                 return response
 
