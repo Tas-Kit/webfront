@@ -4,6 +4,7 @@ db.sqlite3
 /neo4jdb
 */migrations
 /htmlcov
+/webfront/static/
 .coverage
 geckodriver.log
 .DS_STORE

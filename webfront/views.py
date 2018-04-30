@@ -17,7 +17,9 @@ from django.urls import reverse_lazy
 import requests
 import json
 from webfront.forms import SignUpForm
-from settings import URLS
+from django.conf import settings
+
+URLS = settings.URLS
 
 
 class ResetPasswordView(PasswordResetView):
