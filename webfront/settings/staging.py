@@ -26,6 +26,6 @@ DATABASES = {
 
 URLS = {
     'auth': 'http://authserver:8000/',
-    'base': 'https://localhost:10003/',
-    'main': 'https://localhost:10003/main/'
+    'base': 'https://sandbox.tas-kit.com/',
+    'main': 'https://sandbox.tas-kit.com/main/'
 }
