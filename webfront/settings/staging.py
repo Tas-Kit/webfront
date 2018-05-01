@@ -3,6 +3,7 @@ from webfront.settings.basic import *
 
 DEBUG = False
 SECRET_KEY = os.environ['SECRET_KEY']
+ALLOWED_HOSTS.append('sandbox.tas-kit.com')
 
 # X_FRAME_OPTIONS = 'DENY'
 # SECURE_CONTENT_TYPE_NOSNIFF = True
