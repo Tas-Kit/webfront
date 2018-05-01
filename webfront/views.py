@@ -6,7 +6,6 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import (
     PasswordResetView,
     PasswordResetDoneView,
@@ -20,6 +19,18 @@ from webfront.forms import SignUpForm
 from django.conf import settings
 
 URLS = settings.URLS
+
+
+def get_jwt(username, password):
+    auth = requests.post(URLS['auth'] + 'get_jwt/', data={
+        'username': username,
+        'password': password
+    })
+    if auth.status_code == 200:
+        result = json.loads(auth.text)
+        jwt = result['token']
+        return jwt
+    return None
 
 
 class ResetPasswordView(PasswordResetView):
@@ -97,13 +108,8 @@ class LoginView(TemplateView):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            auth = requests.post(URLS['auth'] + 'get_jwt/', data={
-                'username': username,
-                'password': password
-            })
-            if auth.status_code == 200:
-                result = json.loads(auth.text)
-                jwt = result['token']
+            jwt = get_jwt(username, password)
+            if jwt is not None:
                 sub_path = request.GET.get('next')
                 if sub_path:
                     response = redirect(URLS['base'] + sub_path.lstrip('/'))
@@ -142,33 +148,35 @@ class SignUpView(TemplateView):
         form = SignUpForm(data=request.POST)
         if request.method == 'POST':
             if form.is_valid():
-                new_user = form.save()
-                new_user = authenticate(username=form.cleaned_data['username'],
-                                        password=form.cleaned_data['password1'])
-                login(request, new_user)
-                return redirect('home')
+                form.save()
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password1']
+                jwt = get_jwt(username, password)
+                response = redirect(URLS['main'])
+                response.set_cookie('JWT', jwt)
+                return response
         args = {'form': form}
         return render(request, self.template_name, args)
 
 
-class HomeView(TemplateView):
-    """View for temperoray Home.
-    Will be removed after the Main app is implemented.
+# class HomeView(TemplateView):
+#     """View for temperoray Home.
+#     Will be removed after the Main app is implemented.
 
-    Attributes:
-        template_name (str): Description
-    """
+#     Attributes:
+#         template_name (str): Description
+#     """
 
-    template_name = 'home.html'
+#     template_name = 'home.html'
 
-    def post(self, request):
-        """Logout user.
+#     def post(self, request):
+#         """Logout user.
 
-        Args:
-            request (TYPE): Description
+#         Args:
+#             request (TYPE): Description
 
-        Returns:
-            TYPE: Description
-        """
-        logout(request)
-        return redirect('login')
+#         Returns:
+#             TYPE: Description
+#         """
+#         logout(request)
+#         return redirect('login')

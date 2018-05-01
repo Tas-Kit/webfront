@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf.urls import url
 from webfront.views import (
-    HomeView,
     LoginView,
     SignUpView,
     ResetPasswordView,
@@ -28,7 +27,6 @@ from django.contrib import admin
 # pylint: disable=invalid-name
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/$', HomeView.as_view(), name='home'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^signup/$', SignUpView.as_view(), name='signup'),
 
