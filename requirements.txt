@@ -5,3 +5,4 @@ pylint_django
 coverage
 mock
 requests
+sendgrid

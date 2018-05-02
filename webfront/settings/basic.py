@@ -27,6 +27,7 @@ ALLOWED_HOSTS = ['webfront', 'localhost', 'proxyserver']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webfront'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

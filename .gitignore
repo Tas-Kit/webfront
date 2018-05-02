@@ -8,3 +8,4 @@ db.sqlite3
 .coverage
 geckodriver.log
 .DS_STORE
+test-email.py
