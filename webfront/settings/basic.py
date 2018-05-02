@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+DEFAULT_FROM_EMAIL = 'Taskit Customer Center <noreply@tas-kit.com>'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
