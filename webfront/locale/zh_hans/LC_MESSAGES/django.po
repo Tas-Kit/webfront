@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-16 03:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: webfront/settings/basic.py:130
+msgid "English"
+msgstr "英文"
+
+#: webfront/settings/basic.py:131
+msgid "简体中文"
+msgstr "简体中文"
+
+#: webfront/templates/home.html:11
+msgid "Logout"
+msgstr "登出"
+
+#: webfront/templates/login.html:5
+msgid "Login"
+msgstr "登录"
+
+#: webfront/templates/login.html:8
+msgid "Forgot Password"
+msgstr "忘记密码"
+
+#: webfront/templates/login.html:9 webfront/templates/signup.html:8
+msgid "Sign Up"
+msgstr "注册"
+
+#: webfront/templates/reset_password.html:3
+msgid "Password reset"
+msgstr "重置密码"
+
+#: webfront/templates/reset_password.html:5
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr "请输入您的邮箱地址，我们会把重置密码的方法发送到您的邮箱。"
+
+#: webfront/templates/reset_password.html:9
+msgid "Reset"
+msgstr "重置"
+
+#: webfront/templates/reset_password_complete.html:2
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "您的密码已经被重置。您可以重新尝试登录。"
+
+#: webfront/templates/reset_password_complete.html:4
+msgid "Log in"
+msgstr "登录"
+
+#: webfront/templates/reset_password_confirm.html:5
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr "请输入您的新密码两次，让我们来验证您是否输入正确。"
+
+#: webfront/templates/reset_password_confirm.html:10
+msgid "New password:"
+msgstr "新密码："
+
+#: webfront/templates/reset_password_confirm.html:15
+msgid "Confirm password:"
+msgstr "确认密码："
+
+#: webfront/templates/reset_password_confirm.html:18
+msgid "Change my password"
+msgstr "修改密码"
+
+#: webfront/templates/reset_password_confirm.html:22
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr "密码重置的链接已经失效，有可能是因为链接已经被使用过。请重新重置密码。"
+
+#: webfront/templates/reset_password_done.html:5
+msgid "Password reset send"
+msgstr "密码重置已经发送"
+
+#: webfront/templates/reset_password_done.html:7
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr "我们已经将重置密码的邮件发送给您了，请查收。"
+
+#: webfront/templates/reset_password_done.html:8
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr "如果你没有收到邮件，请确认您输入的地址是正确的。如果邮箱是正确的，请查看是否邮件被您屏蔽了。"
+
+#: webfront/templates/reset_password_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr "您收到这封邮件是因为你申请了%(site_name)s的密码重置。"
+
+#: webfront/templates/reset_password_email.html:3
+msgid "Please go to the following page and choose a new password:"
+msgstr "请在新页面钟输入您的新密码："
+
+#: webfront/templates/reset_password_email.html:7
+msgid "Your login email, in case you've forgotten, is same this email address:"
+msgstr "这是您的用户名："
+
+#: webfront/templates/reset_password_email.html:8
+msgid "Thanks for using our site!"
+msgstr "非常感谢您使用我们的平台！"
+
+#: webfront/templates/reset_password_email.html:9
+msgid "taskit team"
+msgstr "taskit团队"
