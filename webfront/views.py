@@ -157,26 +157,3 @@ class SignUpView(TemplateView):
                 return response
         args = {'form': form}
         return render(request, self.template_name, args)
-
-
-# class HomeView(TemplateView):
-#     """View for temperoray Home.
-#     Will be removed after the Main app is implemented.
-
-#     Attributes:
-#         template_name (str): Description
-#     """
-
-#     template_name = 'home.html'
-
-#     def post(self, request):
-#         """Logout user.
-
-#         Args:
-#             request (TYPE): Description
-
-#         Returns:
-#             TYPE: Description
-#         """
-#         logout(request)
-#         return redirect('login')
